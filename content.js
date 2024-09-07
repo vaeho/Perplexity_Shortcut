@@ -1,6 +1,7 @@
 let searchInput = null;
 
 function createSearchInput() {
+    console.log("Creating search input");
     searchInput = document.createElement('div');
     searchInput.innerHTML = `
     <div id="perplexity-search" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; display: none;">
@@ -14,6 +15,7 @@ function createSearchInput() {
         if (e.key === 'Enter') {
             const query = input.value.trim();
             if (query) {
+                console.log("Searching for:", query);
                 window.open(`https://www.perplexity.ai/search?q=${encodeURIComponent(query)}`, '_blank');
                 toggleSearch();
             }
@@ -24,6 +26,7 @@ function createSearchInput() {
 }
 
 function toggleSearch() {
+    console.log("Toggling search input");
     if (!searchInput) {
         createSearchInput();
     }
@@ -39,7 +42,10 @@ function toggleSearch() {
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    console.log("Message received:", request);
     if (request.action === "toggleSearch") {
         toggleSearch();
     }
 });
+
+console.log("Content script loaded");

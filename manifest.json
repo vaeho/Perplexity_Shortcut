@@ -1,16 +1,13 @@
 {
-    "manifest_version": 2,
-    "name": "Perplexity Shortcut",
+    "manifest_version": 3,
+    "name": "Perplexity Quick Search",
     "version": "1.0",
     "description": "Quickly search Perplexity with a keyboard shortcut",
     "permissions": [
         "activeTab"
     ],
     "background": {
-        "scripts": [
-            "background.js"
-        ],
-        "persistent": false
+        "service_worker": "background.js"
     },
     "content_scripts": [
         {
