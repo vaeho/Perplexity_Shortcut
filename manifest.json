@@ -2,9 +2,12 @@
     "manifest_version": 3,
     "name": "Perplexity Quick Search",
     "version": "1.0",
-    "description": "Quickly search Perplexity with a keyboard shortcut",
+    "description": "Quickly search Perplexity with a keyboard shortcut or context menu",
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "storage",
+        "scripting",
+        "contextMenus"
     ],
     "background": {
         "service_worker": "background.js"
@@ -19,6 +22,9 @@
             ]
         }
     ],
+    "action": {
+        "default_popup": "settings.html"
+    },
     "commands": {
         "toggle-search": {
             "suggested_key": {
@@ -26,5 +32,6 @@
             },
             "description": "Toggle Perplexity search input"
         }
-    }
+    },
+    "options_page": "settings.html"
 }

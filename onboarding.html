@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perplexity Quick Search - Setup</title>
+    <style>
+        body, html {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #131314;
+            color: #e0e0e0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+        }
+        .card {
+            background: #1e1e1f;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #20808D;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        ol {
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+        .highlight {
+            background-color: #2a2a2a;
+            color: #20808D;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .shortcut-link {
+            color: #20808D;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .shortcut-link:hover {
+            text-decoration: underline;
+        }
+        .note {
+            background-color: #2a2a2a;
+            border-left: 4px solid #20808D;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Welcome to Perplexity Quick Search</h1>
+            <p>To get the most out of this extension, please set the keyboard shortcut to work globally:</p>
+            <ol>
+                <li>Go to <span class="highlight shortcut-link" id="shortcutLink">chrome://extensions/shortcuts</span> in a new tab</li>
+                <li>Find "Perplexity Quick Search" in the list</li>
+                <li>Click on the dropdown next to "Toggle Perplexity search input"</li>
+                <li>Select <span class="highlight">Global</span> from the options</li>
+            </ol>
+            <p>Once you've done this, you can use <span class="highlight">Alt+P</span> (or your chosen shortcut) to quickly search Perplexity from any webpage!</p>
+            <div class="note">
+                <strong>Note:</strong> You may need to reload your browser or individual pages for the extension to start working after installation.
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

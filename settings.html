@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perplexity Quick Search - Settings</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #131314;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #1e1e1f;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #20808D;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        button {
+            background-color: #20808D;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #1a6a74;
+        }
+        .shortcut-section {
+            margin-top: 20px;
+        }
+        #currentShortcut {
+            font-weight: bold;
+            color: #20808D;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Perplexity Quick Search Settings</h1>
+        <label>
+            <input type="checkbox" id="openInNewTab">
+            Open search results in a new tab
+        </label>
+        <div class="shortcut-section">
+            <p>Current shortcut: <span id="currentShortcut">Loading...</span></p>
+            <button id="changeShortcut">Change Shortcut</button>
+        </div>
+        <button id="saveSettings">Save Settings</button>
+    </div>
+    <script src="settings.js"></script>
+</body>
+</html>

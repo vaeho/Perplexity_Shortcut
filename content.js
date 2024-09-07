@@ -1,11 +1,21 @@
 let searchInput = null;
 
 function createSearchInput() {
-    console.log("Creating search input");
     searchInput = document.createElement('div');
     searchInput.innerHTML = `
     <div id="perplexity-search" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; display: none;">
-      <input type="text" placeholder="Search Perplexity" style="width: 300px; padding: 10px; font-size: 16px; border: 2px solid #4a90e2; border-radius: 5px;">
+      <input type="text" placeholder="Search Perplexity" style="
+        width: 500px;
+        padding: 12px 20px;
+        font-size: 16px;
+        border: 2px solid #20808D;
+        border-radius: 24px;
+        background-color: #1e1e1f;
+        color: #e0e0e0;
+        outline: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      ">
     </div>
   `;
     document.body.appendChild(searchInput);
@@ -15,18 +25,24 @@ function createSearchInput() {
         if (e.key === 'Enter') {
             const query = input.value.trim();
             if (query) {
-                console.log("Searching for:", query);
-                window.open(`https://www.perplexity.ai/search?q=${encodeURIComponent(query)}`, '_blank');
+                chrome.runtime.sendMessage({ action: "search", query: query });
                 toggleSearch();
             }
         } else if (e.key === 'Escape') {
             toggleSearch();
         }
     });
+
+    input.addEventListener('focus', () => {
+        input.style.boxShadow = '0 0 0 3px rgba(32, 128, 141, 0.3)';
+    });
+
+    input.addEventListener('blur', () => {
+        input.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+    });
 }
 
 function toggleSearch() {
-    console.log("Toggling search input");
     if (!searchInput) {
         createSearchInput();
     }
@@ -42,10 +58,7 @@ function toggleSearch() {
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log("Message received:", request);
     if (request.action === "toggleSearch") {
         toggleSearch();
     }
 });
-
-console.log("Content script loaded");
