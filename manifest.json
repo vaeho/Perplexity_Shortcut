@@ -1,0 +1,33 @@
+{
+    "manifest_version": 2,
+    "name": "Perplexity Shortcut",
+    "version": "1.0",
+    "description": "Quickly search Perplexity with a keyboard shortcut",
+    "permissions": [
+        "activeTab"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "commands": {
+        "toggle-search": {
+            "suggested_key": {
+                "default": "Alt+P"
+            },
+            "description": "Toggle Perplexity search input"
+        }
+    }
+}
