@@ -3,16 +3,14 @@
     "name": "Perplexity Shortcut",
     "version": "1.0",
     "description": "Quickly search Perplexity with a keyboard shortcut or context menu",
-    "icons": {
-        "16": "icon.png",
-        "48": "icon.png",
-        "128": "icon.png"
-    },
     "permissions": [
         "activeTab",
         "storage",
         "scripting",
         "contextMenus"
+    ],
+    "host_permissions": [
+        "<all_urls>"
     ],
     "background": {
         "service_worker": "background.js"
@@ -38,6 +36,11 @@
             },
             "description": "Toggle Perplexity search input"
         }
+    },
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
     },
     "options_page": "settings.html"
 }

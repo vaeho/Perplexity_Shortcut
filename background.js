@@ -4,19 +4,22 @@ chrome.runtime.onInstalled.addListener((details) => {
             url: "onboarding.html"
         });
     }
-
-    chrome.contextMenus.create({
-        id: "searchPerplexity",
-        title: "Search Perplexity for '%s'",
-        contexts: ["selection"]
-    });
 });
 
 chrome.commands.onCommand.addListener((command) => {
     if (command === "toggle-search") {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             if (tabs[0]) {
-                chrome.tabs.sendMessage(tabs[0].id, { action: "toggleSearch" });
+                chrome.scripting.executeScript({
+                    target: { tabId: tabs[0].id },
+                    function: () => {
+                        if (typeof toggleSearch === 'function') {
+                            toggleSearch();
+                        } else {
+                            chrome.runtime.sendMessage({ action: "reloadContentScript" });
+                        }
+                    }
+                });
             }
         });
     }
@@ -27,12 +30,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         chrome.tabs.create({ url: "chrome://extensions/shortcuts" });
     } else if (request.action === "search") {
         performSearch(request.query);
-    }
-});
-
-chrome.contextMenus.onClicked.addListener((info, tab) => {
-    if (info.menuItemId === "searchPerplexity") {
-        performSearch(info.selectionText);
+    } else if (request.action === "reloadContentScript") {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            if (tabs[0]) {
+                chrome.scripting.executeScript({
+                    target: { tabId: tabs[0].id },
+                    files: ['content.js']
+                }, () => {
+                    chrome.tabs.sendMessage(tabs[0].id, { action: "toggleSearch" });
+                });
+            }
+        });
     }
 });
 

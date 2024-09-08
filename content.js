@@ -1,6 +1,8 @@
 let searchInput = null;
 
 function createSearchInput() {
+    if (searchInput) return;
+
     chrome.storage.sync.get({
         darkMode: true,
         inputSize: 500
@@ -68,6 +70,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 });
 
+createSearchInput();
+
 chrome.storage.onChanged.addListener((changes, namespace) => {
     if (namespace === 'sync' && (changes.darkMode || changes.inputSize)) {
         if (searchInput) {
@@ -77,3 +81,5 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
         createSearchInput();
     }
 });
+
+window.toggleSearch = toggleSearch;
