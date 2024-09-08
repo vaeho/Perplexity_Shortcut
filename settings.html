@@ -3,23 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perplexity Quick Search - Settings</title>
+    <title>Perplexity Shortcut - Settings</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
             background-color: #131314;
             color: #e0e0e0;
+        }
+        body.light-mode {
+            background-color: #f4f4f4;
+            color: #333;
         }
         .container {
             max-width: 600px;
             margin: auto;
-            background: #1e1e1f;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+        .dark-mode .container {
+            background: #1e1e1f;
+        }
+        .light-mode .container {
+            background: #ffffff;
         }
         h1 {
             color: #20808D;
@@ -29,7 +42,7 @@
             display: block;
             margin-bottom: 10px;
         }
-        input[type="checkbox"] {
+        input[type="checkbox"], input[type="range"] {
             margin-right: 10px;
         }
         button {
@@ -40,27 +53,42 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 20px;
+            transition: background-color 0.3s;
         }
         button:hover {
             background-color: #1a6a74;
         }
-        .shortcut-section {
-            margin-top: 20px;
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
         }
-        #currentShortcut {
-            font-weight: bold;
-            color: #20808D;
+        #saveSettings.saved {
+            background-color: #4CAF50;
         }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Perplexity Quick Search Settings</h1>
-        <label>
-            <input type="checkbox" id="openInNewTab">
-            Open search results in a new tab
-        </label>
-        <div class="shortcut-section">
+        <h1>Perplexity Shortcut Settings</h1>
+        <div class="setting-group">
+            <label>
+                <input type="checkbox" id="openInNewTab">
+                Open search results in a new tab
+            </label>
+        </div>
+        <div class="setting-group">
+            <label>
+                <input type="checkbox" id="darkMode">
+                Dark Mode
+            </label>
+        </div>
+        <div class="setting-group">
+            <label for="inputSize">Search Input Size:</label>
+            <input type="range" id="inputSize" min="300" max="800" step="50">
+            <span id="inputSizeValue"></span>px
+        </div>
+        <div class="setting-group">
             <p>Current shortcut: <span id="currentShortcut">Loading...</span></p>
             <button id="changeShortcut">Change Shortcut</button>
         </div>

@@ -1,8 +1,13 @@
 {
     "manifest_version": 3,
-    "name": "Perplexity Quick Search",
+    "name": "Perplexity Shortcut",
     "version": "1.0",
     "description": "Quickly search Perplexity with a keyboard shortcut or context menu",
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
     "permissions": [
         "activeTab",
         "storage",
@@ -23,7 +28,8 @@
         }
     ],
     "action": {
-        "default_popup": "settings.html"
+        "default_popup": "settings.html",
+        "default_icon": "icon.png"
     },
     "commands": {
         "toggle-search": {
