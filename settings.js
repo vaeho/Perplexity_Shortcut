@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const changeShortcutButton = document.getElementById('changeShortcut');
     const saveSettingsButton = document.getElementById('saveSettings');
 
-    // Load current settings
+    function applyDarkMode(isDarkMode) {
+        document.body.classList.toggle('dark-mode', isDarkMode);
+        document.body.classList.toggle('light-mode', !isDarkMode);
+    }
+
     chrome.storage.sync.get({
         openInNewTab: true,
         darkMode: true,
@@ -18,23 +22,17 @@ document.addEventListener('DOMContentLoaded', function () {
         inputSizeSlider.value = items.inputSize;
         inputSizeValue.textContent = items.inputSize;
 
-        // Apply dark mode to settings page
-        document.body.classList.toggle('dark-mode', items.darkMode);
-        document.body.classList.toggle('light-mode', !items.darkMode);
+        applyDarkMode(items.darkMode);
     });
 
-    // Input size slider
     inputSizeSlider.addEventListener('input', function () {
         inputSizeValue.textContent = this.value;
     });
 
-    // Dark mode toggle
     darkModeCheckbox.addEventListener('change', function () {
-        document.body.classList.toggle('dark-mode', this.checked);
-        document.body.classList.toggle('light-mode', !this.checked);
+        applyDarkMode(this.checked);
     });
 
-    // Load current shortcut
     chrome.commands.getAll(function (commands) {
         const toggleSearchCommand = commands.find(command => command.name === "toggle-search");
         if (toggleSearchCommand && toggleSearchCommand.shortcut) {
@@ -44,12 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Change shortcut
     changeShortcutButton.addEventListener('click', function () {
         chrome.tabs.create({ url: 'chrome://extensions/shortcuts' });
     });
 
-    // Save settings with visual feedback
     saveSettingsButton.addEventListener('click', function () {
         const originalText = saveSettingsButton.textContent;
         saveSettingsButton.textContent = 'Saving...';
@@ -67,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 saveSettingsButton.textContent = originalText;
                 saveSettingsButton.style.backgroundColor = '';
                 saveSettingsButton.disabled = false;
-            }, 2000); // Reset after 2 seconds
+            }, 2000);
         });
     });
 });

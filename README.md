@@ -20,7 +20,7 @@ Perplexity Shortcut is a Chrome extension that provides quick access to Perplexi
 2. Click "Add to Chrome"
 3. Confirm installation and proceed with setup steps
 
-### Manual Installation (for developers)
+### Manual Installation
 
 1. Clone this repository or download the ZIP file
 2. Open Chrome and go to `chrome://extensions/`
