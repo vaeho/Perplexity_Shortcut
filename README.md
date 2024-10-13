@@ -4,7 +4,7 @@ Perplexity Shortcut is a Chrome extension that provides quick access to Perplexi
 
 ## Features
 
-- **Quick Search**: Use a keyboard shortcut (Alt+P on Windows/Linux, Option+P on Mac) to instantly access Perplexity's search from any webpage.
+- **Quick Search**: Use a keyboard shortcut (Alt+Q on Windows/Linux, Option+Q on Mac) to instantly access Perplexity's search from any webpage.
 - **Context Menu Integration**: Right-click on selected text to search it directly on Perplexity.
 - **Customizable Settings**:
   - Toggle between dark and light mode
@@ -30,7 +30,7 @@ Perplexity Shortcut is a Chrome extension that provides quick access to Perplexi
 
 ## Usage
 
-- Press Alt+P (Windows/Linux) or Option+P (Mac) to open the Perplexity search input
+- Press Alt+Q (Windows/Linux) or Option+Q (Mac) to open the Perplexity search input
 - Type your query and press Enter to search
 - Right-click on any selected text and choose "Search Perplexity for '[selected text]'" from the context menu
 

@@ -33,7 +33,7 @@
     "commands": {
         "toggle-search": {
             "suggested_key": {
-                "default": "Alt+P"
+                "default": "Alt+Q"
             },
             "description": "Toggle Perplexity search input"
         }

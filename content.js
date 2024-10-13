@@ -1,5 +1,6 @@
 let searchInput = null;
 let isInitialized = false;
+let lastToggleTime = 0;
 
 function createSearchInput() {
     if (searchInput) return;
@@ -76,23 +77,21 @@ function createSearchInput() {
             }
         });
 
-        input.addEventListener('keyup', (e) => {
-            e.stopPropagation();
-        });
-
-        input.addEventListener('keypress', (e) => {
-            e.stopPropagation();
-        });
-
-        wrapper.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
+        input.addEventListener('keyup', (e) => e.stopPropagation());
+        input.addEventListener('keypress', (e) => e.stopPropagation());
+        wrapper.addEventListener('click', (e) => e.stopPropagation());
 
         isInitialized = true;
     });
 }
 
 function toggleSearch() {
+    const currentTime = Date.now();
+    if (currentTime - lastToggleTime < 200) {
+        return; // Ignore rapid successive calls
+    }
+    lastToggleTime = currentTime;
+
     if (!isInitialized) {
         createSearchInput();
         setTimeout(toggleSearch, 100);
