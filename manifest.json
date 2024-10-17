@@ -6,11 +6,7 @@
     "permissions": [
         "activeTab",
         "storage",
-        "scripting",
         "contextMenus"
-    ],
-    "host_permissions": [
-        "<all_urls>"
     ],
     "background": {
         "service_worker": "background.js"
@@ -26,9 +22,11 @@
             "run_at": "document_start"
         }
     ],
-    "action": {
-        "default_popup": "settings.html",
-        "default_icon": "icon.png"
+    "action": {},
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
     },
     "commands": {
         "toggle-search": {
@@ -38,10 +36,8 @@
             "description": "Toggle Perplexity search input"
         }
     },
-    "icons": {
-        "16": "icon.png",
-        "48": "icon.png",
-        "128": "icon.png"
-    },
-    "options_page": "settings.html"
+    "options_ui": {
+        "page": "settings.html",
+        "open_in_tab": true
+    }
 }

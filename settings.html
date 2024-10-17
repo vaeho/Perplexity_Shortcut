@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perplexity Shortcut - Settings</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Perplexity Shortcut - Settings</title>
+        <meta name="description"
+              content="Settings page for Perplexity Shortcut application.">
+        <meta name="keywords" content="Perplexity, Shortcut, Settings, Application">
+        <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
@@ -66,34 +69,36 @@
             background-color: #4CAF50;
         }
 
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Perplexity Shortcut Settings</h1>
-        <div class="setting-group">
-            <label>
-                <input type="checkbox" id="openInNewTab">
-                Open search results in a new tab
-            </label>
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Perplexity Shortcut Settings</h1>
+            <div class="setting-group">
+                <label>
+                    <input type="checkbox" id="openInNewTab">
+                    Open search results in a new tab
+                </label>
+            </div>
+            <div class="setting-group">
+                <label>
+                    <input type="checkbox" id="darkMode">
+                    Dark Mode
+                </label>
+            </div>
+            <div class="setting-group">
+                <label for="inputSize">Search Input Size:</label>
+                <input type="range" id="inputSize" min="300" max="800" step="50">
+                <span id="inputSizeValue"></span>px
+            </div>
+            <div class="setting-group">
+                <p>
+                    Current shortcut: <span id="currentShortcut">Loading...</span>
+                </p>
+                <button id="changeShortcut">Change Shortcut</button>
+            </div>
+            <button id="saveSettings">Save Settings</button>
         </div>
-        <div class="setting-group">
-            <label>
-                <input type="checkbox" id="darkMode">
-                Dark Mode
-            </label>
-        </div>
-        <div class="setting-group">
-            <label for="inputSize">Search Input Size:</label>
-            <input type="range" id="inputSize" min="300" max="800" step="50">
-            <span id="inputSizeValue"></span>px
-        </div>
-        <div class="setting-group">
-            <p>Current shortcut: <span id="currentShortcut">Loading...</span></p>
-            <button id="changeShortcut">Change Shortcut</button>
-        </div>
-        <button id="saveSettings">Save Settings</button>
-    </div>
-    <script src="settings.js"></script>
-</body>
+        <script src="settings.js"></script>
+    </body>
 </html>

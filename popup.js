@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (shortcutLink) {
         shortcutLink.addEventListener('click', function (e) {
             e.preventDefault();
-            chrome.runtime.sendMessage({ action: "openShortcutsPage" });
+            chrome.tabs.create({ url: "chrome://extensions/shortcuts" });
         });
     }
 });
