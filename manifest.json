@@ -5,6 +5,7 @@
     "description": "Quickly search Perplexity with a keyboard shortcut or context menu",
     "permissions": [
         "activeTab",
+        "scripting",
         "storage",
         "contextMenus"
     ],
@@ -33,7 +34,14 @@
             "suggested_key": {
                 "default": "Alt+Q"
             },
-            "description": "Toggle Perplexity search input"
+            "description": "Toggle search"
+        },
+        "search-page-content": {
+            "suggested_key": {
+                "default": "Alt+W",
+                "mac": "Alt+W"
+            },
+            "description": "Search page content"
         }
     },
     "options_ui": {
