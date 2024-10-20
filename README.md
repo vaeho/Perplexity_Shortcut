@@ -14,9 +14,9 @@ Perplexity Shortcut is a Chrome extension that provides quick access to Perplexi
 
 ## Installation
 
-### From Chrome Web Store (Coming Soon)
+### From Chrome Web Store
 
-1. Visit the Chrome Web Store page for Perplexity Shortcut (link to be added)
+1. Visit the Chrome Web Store page for [Perplexity Shortcut](https://chromewebstore.google.com/detail/perplexity-shortcut/cjamlgjlglelokhjeageobmpmpldlmib)
 2. Click "Add to Chrome"
 3. Confirm installation and proceed with setup steps
 
